@@ -8,7 +8,7 @@ const stadiumTimeMap = {
   E: "18:00 ~ 20:00", // 6구장
 };
 
-const REPLICA = 3;
+const REPLICA = 2;
 const DATES = ["2024-08-04", "2024-08-11", "2024-08-18", "2024-08-25"];
 
 const SZ_ID = process.env.SZ_ID;
@@ -19,7 +19,7 @@ const TARGETS = STADIUMS.flatMap((stadium) =>
 
 async function reserve(szId, target) {
   try {
-    const { result, message } = await post("/api/reservation/addList", {
+    const { message } = await post("/api/reservation/addList", {
       szId,
       szStadium: target.stadium,
       szDDate: target.date,
@@ -38,7 +38,7 @@ async function reserve(szId, target) {
       ],
     });
 
-    console.log(`reserve ${result} ${message}: ${target.date}`);
+    console.log(`reserve ${message}: ${target.date}`);
   } catch (e) {
     console.log(`error occured while reserve: ${e.name} ${e.message}`);
   }
