@@ -1,0 +1,16 @@
+{
+  "name": "the-base-reservation",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "get-sz-id": "ID=$npm_config_id PASSWORD=$npm_config_password node get-sz-id.js",
+    "reserve": "SZ_ID=$npm_config_szid node reserve.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
